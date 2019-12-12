@@ -1,5 +1,12 @@
-- hosts: lin
+- hosts: all
+  gather_facts: true
   tasks:
-  - name: Test Connection
-    ping:
-        data: pong # not required. Data to return for the C(ping) return value.,If this parameter is set to C(crash), the module will cause an exception.
+    - name: set a fact man
+      set_fact:
+        foo: "bar"
+        a:
+          b:
+            c:
+              - "a"
+              - "b"
+        cacheable: true
